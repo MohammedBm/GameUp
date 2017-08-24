@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: VALID_EMAIL_REGEX
   validates :full_name, :username, presence: true
 
-
 # TODO: generate api key later on
   # before_create :generate_api_key
   #
@@ -22,6 +21,4 @@ class User < ApplicationRecord
   #     break unless User.exists?(api_key: api_key)
   #   end
   # end
-
-
 end

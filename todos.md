@@ -1,4 +1,4 @@
-rails g model gamers user:references room:references
+rails g model roomUsers user:references room:references
 add index
 
 

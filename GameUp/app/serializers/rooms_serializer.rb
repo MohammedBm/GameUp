@@ -9,6 +9,7 @@ class RoomSerializer < ActiveModel::Serializer
  end
 
  class CommentSerializer < ActiveModel::Serializer
+   belongs_to :room
    attributes :id, :body, :author_full_name, :author_username, :created_at
 
    def author_full_name
@@ -17,7 +18,5 @@ class RoomSerializer < ActiveModel::Serializer
    def author_username
      object.user&.username
    end
-
  end
-
 end

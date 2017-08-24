@@ -9,6 +9,13 @@ Room.destroy_all
 User.destroy_all
 Comment.destroy_all
 Tag.destroy_all
+tags = Tag.all
+
+tag_path = Rails.root.join('db/tag_data.json')
+raw_tag_data = File.open(tag_path)
+tag_json =  File.read(raw_tag_data)
+parsed_tags = JSON.parse(tag_json)
+
 
 PASSWORD = '1q2w'
 User.create full_name: 'Jon SNow', username: 'KingInTheNorth', email: 'mb@w.cn', password: PASSWORD
@@ -24,18 +31,24 @@ while i < 30 do
   i = i + 1;
  end
 
+ parsed_tags.each do |key, value|
+   Tag.create(name: value['name'])
+ end
+tags = Tag.all
 
  100.times do
-   Room.create(
-   title: Faker::Lorem.sentence,
+   r = Room.create(
+   title: "#{Faker::Lorem.sentence} join us we playing #{Tag.all.sample.name}",
    creater: Faker::Superhero.name,
    activity: Faker::Lorem.sentence,
-   game: Faker::Team.name,
+   game: Tag.all.sample.name,
    time: Faker::Time.forward(23),
-   user_id: User.all.sample.id
+   user_id: User.all.sample.id,
+   limit: rand(1..6)
    )
- end
 
+   
+ end
 
 rooms = Room.all
 
@@ -52,14 +65,4 @@ rooms = Room.all
  puts Cowsay.say("Created #{User.count} Users", :tux)
  puts Cowsay.say("Created #{Room.count} Rooms", :cheese)
  puts Cowsay.say("Created #{Comment.count} Comments", :stimpy)
-
-tag_path = Rails.root.join('db/tag_data.json')
-raw_tag_data = File.open(tag_path)
-tag_json =  File.read(raw_tag_data)
-parsed_tags = JSON.parse(tag_json)
-
-parsed_tags.each do |key, value|
-  Tag.create(name: value['name'])
-end
-
  puts Cowsay.say("Created #{Tag.count} Tags", :beavis)
