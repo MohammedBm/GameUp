@@ -47,7 +47,9 @@ tags = Tag.all
    limit: rand(1..6)
    )
 
-   
+   r.limit.times do
+     r.users << User.all.sample
+   end
  end
 
 rooms = Room.all
@@ -55,7 +57,7 @@ rooms = Room.all
   rooms.each do
     rand(1..6).times do
       Comment.create(
-        body: "add me on #{Faker::Team.name}",
+        body: "add me my username is #{Faker::Team.name}",
         room_id: Room.all.sample.id,
         user_id: User.all.sample.id
       )
