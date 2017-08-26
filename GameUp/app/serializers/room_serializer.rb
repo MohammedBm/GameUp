@@ -3,14 +3,14 @@ class RoomSerializer < ActiveModel::Serializer
 
   belongs_to :user, key: :author
   has_many :comments
+  has_many :users
 
  class UserSerializer < ActiveModel::Serializer
    attributes :id, :full_name, :username
  end
 
  class CommentSerializer < ActiveModel::Serializer
-   belongs_to :room
-   attributes :id, :body, :author_full_name, :author_username, :created_at
+   attributes :id, :body, :author_full_name, :author_username
 
    def author_full_name
      object.user&.full_name

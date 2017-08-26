@@ -11,6 +11,14 @@ const Room = {
         headers: {'Authorization':API_KEY}
       }
     ).then(res => res.json());
+  },
+  get(id){
+    return fetch(
+      `${DOMAIN}${API_PATH}/rooms/${id}`,
+      {
+        headers: {'Authorization':API_KEY}
+      }
+    ).then(res => res.json());
   }
 }
 

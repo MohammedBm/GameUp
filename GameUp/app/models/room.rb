@@ -3,6 +3,8 @@ class Room < ApplicationRecord
   has_many :room_users, dependent: :destroy
   has_many :users, through: :room_users, source: :user
 
+  belongs_to :user
+
   # before_save :validate_room_limit
 
   validates(:title, { presence: { message: 'must be provided' },
