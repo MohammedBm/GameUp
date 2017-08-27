@@ -7,20 +7,9 @@ class Room < ApplicationRecord
 
   # before_save :validate_room_limit
 
-  validates(:title, { presence: { message: 'must be provided' },
-                      uniqueness: true
-                    })
-  validates(:game, { presence: true, length: { minimum: 5, maximum: 2000 }})
+  validates(:title, presence: true,
+                    uniqueness: true)
+  validates(:game, presence: true, length: { minimum: 5, maximum: 20 })
 
-  validates(:creater, { presence: true, length: { minimum: 3, maximum: 20 }})
-
-  private
-
-  # def validate_room_limit
-  #   if self.users.count >  self.limit
-  #     errors.add(:users, "Room is full, already has #{self.users.count} players")
-  #   end
-  #
-  #   Rails.logger.info('adfjaflkjdslfkjdslfkj sdflkjds flksjdlkf')
-  # end
+  validates(:creater, presence: true, length: { minimum: 3, maximum: 20 })
 end

@@ -4,18 +4,18 @@ import {Link} from 'react-router-dom'
 function RoomSummary(props) {
   const {id, title, game, creater, activity, limit, time} = props;
 
-  return (
-    <div className='RoomSummary'>
-          <div>
+  return( 
+    <div className='RoomSummary row'>
+        <div className='col-6'>
             <Link to={`/rooms/${id}`}><strong>{title}</strong></Link>
             <div>Game: {game}</div>
             <div>Username: {creater}</div>
             <div>Activity: {activity}</div>
             <div>Time: {time}</div>
             <div>Player Limit: {limit}</div>
-            <hr/>
-          </div>
-    </div>
+            <button className='btn btn-outline-primary'>Join</button>
+        </div>
+      </div>
   )
 }
 

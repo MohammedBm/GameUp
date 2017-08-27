@@ -1,5 +1,5 @@
 class RoomSerializer < ActiveModel::Serializer
-  attributes :id, :title, :creater, :activity,:time, :game, :limit
+  attributes :id,   :title, :creater, :activity,:time, :game, :limit
 
   belongs_to :user, key: :author
   has_many :comments

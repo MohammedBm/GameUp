@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :rooms, only: %i[index show create] do
         resources :comments, only: %i[create destroy]
       end
+      resources :tokens, only: [:create]
     end
   end
 
