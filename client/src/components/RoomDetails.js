@@ -12,7 +12,7 @@ function RoomDetails(props){
             <div>Username: {creater}</div>
             <div>Activity: {activity}</div>
             <div>Time: {time}</div>
-            <div>Player Limit: {limit}</div>
+            <div>Player Limit: {users.length}/{limit}</div>
             <hr/>
             <h3>Users</h3>
               <ul className='RoomUsersList'>
@@ -34,7 +34,7 @@ function RoomDetails(props){
                     comment =>(
                       <li key={comment.id}>
                         <p>{comment.body}</p>
-                        <p>{comment.author_full_name}'s comment </p>
+                        <p>{comment.author_username}'s comment </p>
                         <hr />
                       </li>
                     )
