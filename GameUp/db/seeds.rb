@@ -26,7 +26,7 @@ while i < 30 do
     full_name: Faker::Name.name,
     username: Faker::LeagueOfLegends.champion,
     email:Faker::Internet.safe_email,
-    password: PASSWORD
+    password: PASSWORDcurre
   )
   i = i + 1;
  end
