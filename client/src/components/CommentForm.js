@@ -16,14 +16,13 @@ function CommentForm (props){
   }
 
   return(
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor = 'body'>Body</label><br />
-        <input id='body' name='body'/>
+    <form className ='form-inline'onSubmit={handleSubmit}>
+      <div className='form-group'>
+        <textarea id='body' className='form-control' name='body' placeholder='Comment Here'/>
       </div>
 
       <div>
-        <input type='submit' value='Submit'/>
+        <input type='submit'  className='btn btn-primary submitComment' value='Submit'/>
       </div>
 
     </form>

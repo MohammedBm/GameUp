@@ -32,7 +32,7 @@ class RoomShowPage extends Component{
     return(
       <div className='RoomShowPage'>
         <RoomDetails db={this.props.firebase} {...room}/>
-        <CommentForm onSubmit = {this.createComment} />
+        {/* <CommentForm  className ='commentFrom'onSubmit = {this.createComment} /> */}
       </div>
     )
   }

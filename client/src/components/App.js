@@ -9,6 +9,7 @@ import SignInPage from './pages/SignInPage';
 import AuthRoute from './AuthRoute';
 import SignUpPage from './pages/SignUpPage';
 import firebase from 'firebase';
+import AboutPage from './pages/AboutPage'
 
 class App extends Component {
   constructor(props){
@@ -60,13 +61,16 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
           <Link className = 'navbar-brand'to='/'>GameUp</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Link className = 'nav-link'to='/about'>About</Link>
+              </li>
               <li className="nav-item">
                 <Link className = 'nav-link'to='/rooms/new'>New Room</Link>
               </li>
@@ -96,17 +100,13 @@ class App extends Component {
             </ul>
           </div>
         </nav>
-
-        <div className='container-fluid'>
-
+        <div className='container'>
         <h1>GameUp</h1>
-
         <Switch>
           <Route exact path='/' component={RoomIndexPage} />
+          <Route exact path='/about' component={AboutPage}/>
           <Route exact path='/sign_in' render={(props) => <SignInPage {...props} onSignIn={this.signIn}/>}/>
-
           <Route exact path='/sign_up' render={(props) => <SignUpPage {...props} onSignIn={this.signIn}/>}/>
-
           <AuthRoute exact isAuthenticated={isSignedIn} path='/rooms/new' component={RoomNewPage} />
           <Route exact path='/rooms/:id' isAuthenticated={isSignedIn} db={this.props.firebase} component={RoomShowPage} />
         </Switch>

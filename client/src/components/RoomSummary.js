@@ -21,11 +21,13 @@ class RoomSummary extends Component {
   }
 
    currentUserHasJoined = ()=>{
-    return !!this.state.room_users.find(user => user.user_id === this.state.userId)
+     let userInRoom = this.state.room_users.find(user => user.user_id === this.state.userId)
+     console.log(userInRoom);
+     return userInRoom ?(userInRoom.id):(false)
   }
 
   curretUSerHasLeave = ()=>{
-    return this.state.room_users.find(user => user.user_id === this.state.userId).id
+    return this.state.room_users.find(user => user.user_id === this.state.userId)
   }
 
 render(){
@@ -33,10 +35,21 @@ render(){
     div:{
       width: '30rem',
       marginBottom: '10px',
-      marginRigth: '10px',
-      marginLeft: '10px'
+      marginRigth: '13px',
+      marginLeft: '14px'
     }
   }
+
+    let button = null
+    console.log('has joined',this.currentUserHasJoined());
+    console.log(`has left:`,this.curretUSerHasLeave());
+    if(this.currentUserHasJoined()){
+      button = <UnjoinedButton handleJoin={this.handleJoin} roomUserId={this.currentUserHasJoined()} />
+    }else if (this.state.users.length === this.state.limit) {
+      button = <button className='btn btn-danger card-link'>Full</button>
+    }else{
+      button = <JoinButton roomId={this.state.id} handleJoin={this.handleJoin} />
+    }
 
     return(
 
@@ -53,14 +66,15 @@ render(){
 
             <p className="card-text"><strong>Player Limit:</strong> {this.state.users.length}/{this.state.limit}</p>
 
-            <p className="card-text"><strong>Craeter:</strong> {this.state.author.username} id =>{this.state.author.id} </p>
+            <p className="card-text"><strong>Creater:</strong> {this.state.author.username} id =>{this.state.author.id} </p>
             {
-              this.currentUserHasJoined()
-              ? (
-                <UnjoinedButton handleJoin={this.handleJoin} roomUserId={this.curretUSerHasLeave()} />
-              ):(
-                <JoinButton roomId={this.state.id} handleJoin={this.handleJoin} />
-              )
+              // this.currentUserHasJoined()
+              // ? (
+              //   <UnjoinedButton handleJoin={this.handleJoin} roomUserId={this.curretUSerHasLeave()} />
+              // ):(
+              //   <JoinButton roomId={this.state.id} handleJoin={this.handleJoin} />
+              // )
+              button
             }
 
             <Link to={`/rooms/${this.state.id}`} className='card-link btn-outline-primary btn'>Open</Link>

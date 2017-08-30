@@ -22,32 +22,38 @@ function RoomForm(props) {
 
   return(
     <form onSubmit={handleSubmit}>
-      <div>
+      <div className='form-group'>
         <label htmlFor = 'title'>Title</label><br />
-        <input id='title' name='title'/>
-      </div>
-      <div>
-        <label htmlFor = 'creater'>Username</label><br />
-        <input id='creater' name='creater'/>
-      </div>
-      <div>
-        <label htmlFor = 'game'>Game</label><br />
-        <input maxLength='20' id='game' name='game'/>
-      </div>
-      <div>
-        <label htmlFor = 'activity'>Activity</label><br />
-        <input id='activity' name='activity'/>
-      </div>
-      <div>
-        <label htmlFor = 'time'>Time</label><br />
-        <input id='time' name='time'/>
-      </div>
-      <div>
-        <label htmlFor = 'limit'>Player Count</label><br />
-        <input type = 'number'id='limit' name='limit'/>
+        <input className="form-control" id='title' name='title'/>
       </div>
 
-      <br />
+      <div className='form-group'>
+        <label htmlFor = 'creater'>Username</label><br />
+        <input className="form-control" id='creater' name='creater'/>
+      </div>
+
+      <div className='form-group'>
+        <label htmlFor = 'game'>Game</label><br />
+        <input className="form-control" maxLength='20' id='game' name='game'/>
+      </div>
+
+      <div className='form-group'>
+        <label htmlFor = 'time'>Time</label><br />
+        <input className="form-control" id='time' name='time'
+        placeholder='Write Down the activity you want to do' />
+      </div>
+
+      <div className='form-group'>
+        <label htmlFor = 'limit'>Player Count</label><br />
+        <input className="form-control" type = 'number'id='limit' name='limit'/>
+        <small className="form-text text-muted">You will be counted as one of the member of the group.</small>
+      </div>
+
+      <div className='form-group'>
+        <label htmlFor = 'activity'>Activity</label><br />
+        <textarea className="form-control" id='activity' name='activity' placeholder='Write Down the activity you want to do'/>
+      </div>
+
       <div>
         <input className = 'btn-outline-primary btn'type='submit' value='Submit'/>
       </div>

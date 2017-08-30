@@ -29,9 +29,10 @@ class MessageBox extends Component {
     return (
       <form>
         <textarea
-            className="textarea"
+            className="form-control messageInput"
             placeholder="Type a message"
-            cols="100"
+            rows='3'
+            cols='1000'
             onChange={this.onChange}
             onKeyUp={this.onKeyup}
             value={this.state.message}>

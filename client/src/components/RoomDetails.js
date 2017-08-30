@@ -62,60 +62,61 @@ render(){
   const {messages} = this.state
   return (
     <div className='RoomDeatils'>
-          <div className='row'>
-            <div className='col-6'>
-            <strong key='123'>{title}</strong>
-            <div><strong>Game:</strong> {game}</div>
-            <div><strong>Username:</strong> {creater}</div>
-            <div><strong>Activity:</strong> {activity}</div>
-            <div><strong>Time:</strong> {time}</div>
-            <div><strong>Player Limit:</strong> {users.length}/{limit}</div>
-            <hr/>
-            <h3>Users</h3>
-              <ul key="12" className='RoomUsersList'>
-                {
-                  users.map(
-                    user =>(
-                      <li key={user.id}>
-                        {user.username}
-                      </li>
-                    )
-                  )
-                }
-              </ul>
-            <hr/>
-            <h3>Comments</h3>
-              <ul className='CommentList'>
-                {
-                  comments.map(
-                    comment =>(
-                      <li key={comment.id}>
-                        <p><strong>{comment.author_username}</strong>: {comment.body}</p>
-                        <hr />
-                      </li>
-                    )
-                  )
-                }
-              </ul>
-
-          </div>
-          <div className='col-6'>
-            <h2 >Chat Room</h2>
-            <div className='chatBox'>
-            <div className="columns">
-              <div className="column is-3"></div>
-              <div className="column is-6">
-                <MessageList {...{messages}}/>
-              </div>
-            </div>
-            <div className="columns">
-              <div className="column is-3"></div>
-            </div>
-          </div>
+      <div className='row'>
+        <div className='col-lg-6 col-md-6 col-s-12'>
+        <h4><strong key='123'>{title}</strong></h4>
+        <div><strong>Game:</strong> {game}</div>
+        <div><strong>Username:</strong> {creater}</div>
+        <div><strong>Activity:</strong> {activity}</div>
+        <div><strong>Time:</strong> {time}</div>
+        <div><strong>Player Limit:</strong> {users.length}/{limit}</div>
+        <hr/>
+        <h3>Users</h3>
+          <ul key="12" className='RoomUsersList'>
+            {
+              users.map(
+                user =>(
+                  <li key={user.id}>
+                    {user.username}
+                  </li>
+                )
+              )
+            }
+          </ul>
+        {/* <hr/> */}
+        {/* <h3>Comments</h3> */}
+        {/* <div className='commentBox'>
+          <ul className='CommentList'>
+            {
+              comments.map(
+                comment =>(
+                  <li key={comment.id}>
+                    <p className='commentMessage'><strong>{comment.author_username}</strong>: {comment.body}</p>
+                    <hr />
+                  </li>
+                )
+              )
+            }
+          </ul>
+        </div> */}
+      </div>
+      <div className='col-lg-6 col-md-6 col-s-12'>
+        <h2 >Chat Room</h2>
+        <div className='chatBox'>
+        <div className="columns">
+          <div className="column is-3"></div>
           <div className="column is-6">
-            <MessageBox sendMessage={this.sendMessage} {...{currentUser}}/>
+            <MessageList {...{messages}}/>
           </div>
-          </div>
+        </div>
+        <div className="columns">
+          <div className="column is-3"></div>
+        </div>
+      </div>
+      <div className="column is-6">
+        <MessageBox sendMessage={this.sendMessage} {...{currentUser}}/>
+      </div>
+      </div>
     </div>
   </div>
   )

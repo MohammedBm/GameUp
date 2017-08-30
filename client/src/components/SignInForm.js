@@ -16,17 +16,19 @@ function SignInForm (props) {
   }
   return(
     <form onSubmit={handleSubmit}>
-      <div className='input-group'>
-        <label htmlFor='email' className='input-group-addon'>Email</label> <br />
+      <div className='form-group'>
+        <label htmlFor='email'>Email</label>
         <input id='email'  placeholder='example@example.com'name='email' className='form-control LimitQuarter' />
+        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+
       </div>
-      <br/>
-      <div className='input-group'>
-        <label htmlFor='password' className='input-group-addon'>Password</label>
-        <input  placeholder='password gose here' type='password'id='password' name='password' className='form-control LimitQuarter' />
+      <div className='form-group'>
+        <label htmlFor='password'>Password</label>
+        <input  placeholder='password gose here' type='password'id='password' name='password' className='form-control LimitQuarter' placeholder='Password'/>
+        <small id="emailHelp" className="form-text text-muted">Don't share your password with anyone.</small>
+
       </div>
 
-      <br />
       <div>
         <input className='btn btn-outline-primary'type='submit' value='Sign In'/>
       </div>

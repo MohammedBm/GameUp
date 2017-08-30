@@ -38,7 +38,7 @@ class JoinButton extends Component{
     const {currentUser} = this;
 
     return(
-        <a  onClick={JoinRoom} className="card-link btn-outline-primary btn">Join!</a>
+        <button onClick={JoinRoom} className="card-link btn-outline-primary btn">Join!</button>
     )
   }
 }
