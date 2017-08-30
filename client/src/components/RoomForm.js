@@ -47,8 +47,9 @@ function RoomForm(props) {
         <input type = 'number'id='limit' name='limit'/>
       </div>
 
+      <br />
       <div>
-        <input type='submit' value='Submit'/>
+        <input className = 'btn-outline-primary btn'type='submit' value='Submit'/>
       </div>
 
     </form>

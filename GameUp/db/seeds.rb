@@ -21,12 +21,12 @@ PASSWORD = '1q2w'
 User.create full_name: 'Jon Snow', username: 'KingInTheNorth', email: 'mb@w.cn', password: PASSWORD
 
 i ||= 0;
-while i < 30 do
+while i < 150 do
  u = User.create(
     full_name: Faker::Name.name,
     username: Faker::LeagueOfLegends.champion,
     email:Faker::Internet.safe_email,
-    password: PASSWORDcurre
+    password: PASSWORD
   )
   i = i + 1;
  end
@@ -36,7 +36,7 @@ while i < 30 do
  end
 tags = Tag.all
 
- 100.times do
+ 150.times do
    r = Room.create(
    title: "#{Faker::Lorem.sentence} join us we playing #{Tag.all.sample.name}",
    creater: Faker::Superhero.name,
