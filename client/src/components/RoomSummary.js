@@ -31,15 +31,7 @@ class RoomSummary extends Component {
     return this.state.room_users.find(user => user.user_id === this.state.userId)
   }
 
-render(){
-  let style = {
-    div:{
-      width: '30rem',
-      marginBottom: '10px',
-      marginRigth: '13px',
-      marginLeft: '14px'
-    }
-  }
+  render(){
 
     let button = null
     console.log('has joined',this.currentUserHasJoined());
@@ -53,15 +45,15 @@ render(){
     }
 
     return(
-      <div className='RoomSummary'>
-        <div className="card card" style={style.div}>
+      <div className='RoomSummary col-lg-6 col-md-12 col-xs-12 col-s-12 container'>
+        <div className="card RoomSummaryStyle" >
           <div className="card-body">
-            <Link to={`/rooms/${this.state.id}`}><strong>{this.state.title}</strong></Link>
-            <h6 className="card-subtitle mb-2 text-muted">{this.state.game} room id=>{this.state.id}</h6>
+            <Link to={`/rooms/${this.state.id}`}><strong> {this.state.title}</strong></Link>
+            <h6 className="card-subtitle mb-2 text-muted">{this.state.game}</h6>
             <p className="card-text"><strong>Activity:</strong> {this.state.activity}.</p>
             <p className="card-text"><strong>Time:</strong> {this.state.time}</p>
             <p className="card-text"><strong>Player Limit:</strong> {this.state.users.length}/{this.state.limit}</p>
-            <p className="card-text"><strong>Creater:</strong> {this.state.author.username} id =>{this.state.author.id} </p>
+            <p className="card-text"><strong>Creater:</strong> {this.state.author.username}</p>
             {button}
             <Link to={`/rooms/${this.state.id}`} className='card-link btn-outline-primary btn'>Open</Link>
           </div>

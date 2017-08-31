@@ -61,7 +61,7 @@ class RoomDetails extends Component {
       author_username,
       users = []
     } = this.props;
-    
+
     const {currentUser} = this;
     const {messages} = this.state
     return (
@@ -69,52 +69,35 @@ class RoomDetails extends Component {
         <div className='row'>
           <div className='col-lg-6 col-md-6 col-s-12'>
             <h4>
-              <strong key='123'>{title}</strong>
+              <strong key='123'> {title}</strong>
             </h4>
             <div>
-              <strong>Game:</strong>
-              {game}</div>
+              <p><strong>Game:</strong> {game}</p>
+            </div>
             <div>
-              <strong>Username:</strong>
-              {creater}</div>
+              <p><strong>Username:</strong> {creater}</p>
+            </div>
             <div>
-              <strong>Activity:</strong>
-              {activity}</div>
+              <p><strong>Activity:</strong> {activity}</p>
+            </div>
             <div>
-              <strong>Time:</strong>
-              {time}</div>
+              <p><strong>Time:</strong> {time}</p>
+            </div>
             <div>
-              <strong>Player Limit:</strong>
-              {users.length}/{limit}</div>
+              <p><strong>Player Limit:</strong> {users.length}/{limit}</p>
+            </div>
             <hr/>
             <h3>Users</h3>
-            <ul key="12" className='RoomUsersList'>
+            <ul key="12" className='RoomUsersList list-group'>
               {users.map(user => (
-                <li key={user.id}>
+                <li className='list-group-item' key={user.id}>
                   {user.username}
                 </li>
               ))
-}
+            }
             </ul>
-            {/* <hr/> */}
-            {/* <h3>Comments</h3> */}
-            {/* <div className='commentBox'>
-            <ul className='CommentList'>
-              {
-                comments.map(
-                  comment =>(
-                    <li key={comment.id}>
-                      <p className='commentMessage'><strong>{comment.author_username}</strong>: {comment.body}</p>
-                      <hr />
-                    </li>
-                  )
-                )
-              }
-            </ul>
-          </div> */}
           </div>
           <div className='col-lg-6 col-md-6 col-s-12'>
-            <h2 >Chat Room</h2>
             <div className='chatBox'>
               <div className="columns">
                 <div className="column is-3"></div>

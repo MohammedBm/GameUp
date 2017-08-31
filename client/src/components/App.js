@@ -60,7 +60,8 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+          <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
+            <div className='container'>
             <Link className='navbar-brand' to='/'>GameUp</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -73,30 +74,31 @@ class App extends Component {
                 <li className="nav-item">
                   <Link className='nav-link' to='/rooms/new'>New Room</Link>
                 </li>
-                <li className="nav-item">
-                  {isSignedIn
-                    ? ([ < span className = "navbar-text" key = "123" > Hello, {
-                        currentUser.full_name
-                      }({currentUser.username})!</span>, < a key = "321" className = 'signOutNav' href onClick = {
-                        this.signOut
-                      } > Sign out < /a>
-                    ]) : (
-                      <Link className = 'nav-link' to='/sign_in '>Sign In</Link>
-                    )
-                  }
-                </li>
-                <li className="nav-item">
-                  {isSignedIn
-                    ? (
-                      <span key='3333'></span>
-                    )
-                    : (
-                      <Link key='232' className='nav-link' to='/sign_up'>Sign Up</Link>
-                    )
-                  }
-                </li>
               </ul>
+              <div className="nav-item">
+                {isSignedIn
+                  ? ([ < span className = "navbar-text" key = "123" > Hello, {
+                    currentUser.full_name
+                  }({currentUser.username})!</span>, < a key = "321" className = 'signOutNav' href onClick = {
+                    this.signOut
+                  } > Sign out < /a>
+                ]) : (
+                  <Link className = 'nav-link' to='/sign_in'>Sign In</Link>
+                )
+              }
             </div>
+            <div className="nav-item">
+              {isSignedIn
+                ? (
+                  <span key='3333'></span>
+                )
+                : (
+                  <Link key='232' className='nav-link' to='/sign_up'>Sign Up</Link>
+                )
+              }
+            </div>
+            </div>
+          </div>
           </nav>
           <div className='container'>
             <h1>GameUp</h1>

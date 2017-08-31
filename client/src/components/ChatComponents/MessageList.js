@@ -15,8 +15,8 @@ class MessageList extends Component {
             <div key={index}>
               <div className="Messages">
                 <Message message={message.message} username={message.username}/>
-                <hr/>
               </div>
+              <hr className='hrLine'/>
             </div>
           )
         })}
