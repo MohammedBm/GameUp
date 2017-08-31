@@ -3,10 +3,9 @@ import Message from './Message';
 import _ from 'lodash';
 
 class MessageList extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
-
 
   render() {
     return (
@@ -15,7 +14,7 @@ class MessageList extends Component {
           return (
             <div key={index}>
               <div className="Messages">
-                <Message message = {message.message} username={message.username}/>
+                <Message message={message.message} username={message.username}/>
                 <hr/>
               </div>
             </div>

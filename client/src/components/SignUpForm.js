@@ -1,7 +1,9 @@
 import React from 'react';
 
 function SignUpForm (props) {
-  const { onSubmit = () => {} } = props;
+  const {
+    onSubmit = () => {}
+  } = props;
 
   const handleSubmit = event => {
     event.preventDefault();

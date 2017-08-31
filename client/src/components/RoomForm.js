@@ -5,7 +5,7 @@ function RoomForm(props) {
     onSubmit = () => {}
   } = props
 
-  const handleSubmit = event =>{
+  const handleSubmit = event => {
     event.preventDefault();
     const {currentTarget} = event;
 
@@ -20,47 +20,38 @@ function RoomForm(props) {
     })
   }
 
-  return(
+  return (
     <form onSubmit={handleSubmit}>
       <div className='form-group'>
-        <label htmlFor = 'title'>Title</label><br />
-        <input className="form-control" id='title' name='title'/>
+        <label htmlFor='title'>Title</label>
+        <input className="form-control" id='title' placeholder='Title' name='title'/>
       </div>
-
       <div className='form-group'>
-        <label htmlFor = 'creater'>Username</label><br />
-        <input className="form-control" id='creater' name='creater'/>
+        <label htmlFor='creater'>Username</label>
+        <input className="form-control" id='creater' placeholder ='Username' name='creater'/>
       </div>
-
       <div className='form-group'>
-        <label htmlFor = 'game'>Game</label><br />
-        <input className="form-control" maxLength='20' id='game' name='game'/>
+        <label htmlFor='game'>Game</label>
+        <input className="form-control" maxLength='20' id='game' placeholder='Game' name='game'/>
       </div>
-
       <div className='form-group'>
-        <label htmlFor = 'time'>Time</label><br />
-        <input className="form-control" id='time' name='time'
-        placeholder='Write Down the activity you want to do' />
+        <label htmlFor='time'>Time</label>
+        <input className="form-control" id='time' name='time' placeholder='Write Down the time'/>
       </div>
-
       <div className='form-group'>
-        <label htmlFor = 'limit'>Player Count</label><br />
-        <input className="form-control" type = 'number'id='limit' name='limit'/>
+        <label htmlFor='limit'>Player Count</label>
+        <input className="form-control" type='number' id='limit' placeholder='Player Limit' name='limit'/>
         <small className="form-text text-muted">You will be counted as one of the member of the group.</small>
       </div>
-
       <div className='form-group'>
-        <label htmlFor = 'activity'>Activity</label><br />
+        <label htmlFor='activity'>Activity</label>
         <textarea className="form-control" id='activity' name='activity' placeholder='Write Down the activity you want to do'/>
       </div>
-
       <div>
-        <input className = 'btn-outline-primary btn'type='submit' value='Submit'/>
+        <input className='btn-outline-primary btn' type='submit' value='Submit'/>
       </div>
-
     </form>
   )
-
 }
 
 export default RoomForm;

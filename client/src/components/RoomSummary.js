@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import JoinButton from './JoinButton';
 import jwtDecode from 'jwt-decode';
 import UnjoinedButton from './UnjoinedButton'
+
 class RoomSummary extends Component {
   constructor(props){
     super(props)
@@ -20,13 +21,13 @@ class RoomSummary extends Component {
     return jwt && jwtDecode(jwt);
   }
 
-   currentUserHasJoined = ()=>{
+  currentUserHasJoined = ()=>{
      let userInRoom = this.state.room_users.find(user => user.user_id === this.state.userId)
      console.log(userInRoom);
      return userInRoom ?(userInRoom.id):(false)
   }
 
-  curretUSerHasLeave = ()=>{
+  currentUserHasLeft = ()=>{
     return this.state.room_users.find(user => user.user_id === this.state.userId)
   }
 
@@ -42,7 +43,7 @@ render(){
 
     let button = null
     console.log('has joined',this.currentUserHasJoined());
-    console.log(`has left:`,this.curretUSerHasLeave());
+    console.log(`has left:`,this.currentUserHasLeft());
     if(this.currentUserHasJoined()){
       button = <UnjoinedButton handleJoin={this.handleJoin} roomUserId={this.currentUserHasJoined()} />
     }else if (this.state.users.length === this.state.limit) {
@@ -52,37 +53,22 @@ render(){
     }
 
     return(
-
-    <div className='RoomSummary'>
-        <div className="card " style={style.div}>
+      <div className='RoomSummary'>
+        <div className="card card" style={style.div}>
           <div className="card-body">
             <Link to={`/rooms/${this.state.id}`}><strong>{this.state.title}</strong></Link>
-
             <h6 className="card-subtitle mb-2 text-muted">{this.state.game} room id=>{this.state.id}</h6>
-
             <p className="card-text"><strong>Activity:</strong> {this.state.activity}.</p>
-
             <p className="card-text"><strong>Time:</strong> {this.state.time}</p>
-
             <p className="card-text"><strong>Player Limit:</strong> {this.state.users.length}/{this.state.limit}</p>
-
             <p className="card-text"><strong>Creater:</strong> {this.state.author.username} id =>{this.state.author.id} </p>
-            {
-              // this.currentUserHasJoined()
-              // ? (
-              //   <UnjoinedButton handleJoin={this.handleJoin} roomUserId={this.curretUSerHasLeave()} />
-              // ):(
-              //   <JoinButton roomId={this.state.id} handleJoin={this.handleJoin} />
-              // )
-              button
-            }
-
+            {button}
             <Link to={`/rooms/${this.state.id}`} className='card-link btn-outline-primary btn'>Open</Link>
           </div>
         </div>
-  </div>
+    </div>
   )
-}
+  }
 }
 
 export default RoomSummary;
