@@ -23,21 +23,14 @@ class RoomSummary extends Component {
 
   currentUserHasJoined = ()=>{
      let userInRoom = this.state.room_users.find(user => user.user_id === this.state.userId)
-     console.log(userInRoom);
      return userInRoom ?(userInRoom.id):(false)
   }
 
-  currentUserHasLeft = ()=>{
-    return this.state.room_users.find(user => user.user_id === this.state.userId)
-  }
-
   render(){
-
     let button = null
     console.log('has joined',this.currentUserHasJoined());
-    console.log(`has left:`,this.currentUserHasLeft());
     if(this.currentUserHasJoined()){
-      button = <UnjoinedButton handleJoin={this.handleJoin} roomUserId={this.currentUserHasJoined()} />
+        button = <UnjoinedButton handleJoin={this.handleJoin} roomUserId={this.currentUserHasJoined()} />
     }else if (this.state.users.length === this.state.limit) {
       button = <button className='btn btn-danger card-link'>Full</button>
     }else{
