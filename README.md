@@ -1,6 +1,6 @@
 # GameUp
 
-GameUp is a platform for player who are looking to play with new people. This platform give the user to create a new room or join rooms. In this rooms there is details about the game and how many user can join. Inside this rooms there is private chat room. This is the perfect platform for gamers who is looking for new friends
+GameUp is a platform for players who are looking to play with new people. This platform gives the user to create a new room or join rooms. In this rooms, there are details about the game and how many user can join. Inside these rooms, the player can chat with each other via real-time chat box using firebase. GameUp was created using Rails as an API, react js for the front end and Bootstrap for the UI. GameUp is the perfect platform for gamers who are looking for new friends
 
 ## Installation instructions
 To use this application you can clone the repo via this command in your terminal
