@@ -6,7 +6,9 @@ import jwtDecode from 'jwt-decode';
 import RoomShowPage from './pages/RoomShowPage';
 import RoomNewPage from './pages/RoomNewPage';
 import SignInPage from './pages/SignInPage';
+import SignInPageForNew from './pages/SignInPageForNew';
 import AuthRoute from './AuthRoute';
+import AuthHome from './AuthHome';
 import SignUpPage from './pages/SignUpPage';
 import firebase from 'firebase';
 import AboutPage from './pages/AboutPage'
@@ -38,6 +40,7 @@ class App extends Component {
     event.preventDefault();
     window.localStorage.removeItem('jwt');
     this.setState({isSignedIn: false});
+    window.location.replace("/sign_in_new_user");
   }
 
   signIn = () => {
@@ -62,7 +65,13 @@ class App extends Component {
         <div className="App">
           <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
             <div className='container'>
-            <Link className='navbar-brand' to='/'>GameUp</Link>
+            {isSignedIn
+                ? ([
+                  <Link className='navbar-brand' to='/'>GameUp</Link>
+              ]) : (
+                <Link className = 'nav-link' to='/sign_in_new_user'>GameUp</Link>
+              )
+            }
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -103,9 +112,10 @@ class App extends Component {
           <div className='container'>
             <h1>GameUp</h1>
             <Switch>
-              <AuthRoute exact isAuthenticated={isSignedIn} path='/' component={RoomIndexPage}/>
+              <Route exact isAuthenticated={isSignedIn} path='/' component={RoomIndexPage}/>
               <Route exact path='/about' component={AboutPage}/>
               <Route exact path='/sign_in' render={(props) => <SignInPage {...props} onSignIn={this.signIn}/>}/>
+              <Route exact path='/sign_in_new_user' render={(props) => <SignInPageForNew {...props} onSignIn={this.signIn}/>}/>
               <Route exact path='/sign_up' render={(props) => <SignUpPage {...props} onSignIn={this.signIn}/>}/>
               <AuthRoute exact isAuthenticated={isSignedIn} path='/rooms/new' component={RoomNewPage}/>
               <Route exact path='/rooms/:id' isAuthenticated={isSignedIn} db={this.props.firebase} component={RoomShowPage}/>
