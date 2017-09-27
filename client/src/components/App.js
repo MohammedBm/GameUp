@@ -103,7 +103,7 @@ class App extends Component {
           <div className='container'>
             <h1>GameUp</h1>
             <Switch>
-              <Route exact path='/' component={RoomIndexPage}/>
+              <AuthRoute exact isAuthenticated={isSignedIn} path='/' component={RoomIndexPage}/>
               <Route exact path='/about' component={AboutPage}/>
               <Route exact path='/sign_in' render={(props) => <SignInPage {...props} onSignIn={this.signIn}/>}/>
               <Route exact path='/sign_up' render={(props) => <SignUpPage {...props} onSignIn={this.signIn}/>}/>
